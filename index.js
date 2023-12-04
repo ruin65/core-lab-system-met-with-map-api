@@ -1,14 +1,11 @@
-document.getElementById('categoryForm').addEventListener('submit', (event) => {
-    event.preventDefault();
+import express from 'express';
 
-    const selectedPeriod = document.getElementById('period').value;
-    const selectedDepartment = document.getElementById('Department').value;
+const app = express();
+const port = process.env.PORT || 3000;
 
-    // 可以在这里添加将选择传递到另一个页面的逻辑
-    // 例如，使用 URL 参数
-    const queryParameters = `period=${selectedPeriod}&department=${selectedDepartment}`;
-    window.location.href = `explore.html?${queryParameters}`;
+// 提供静态文件服务
+app.use(express.static('public')); // 假设您的前端文件在 'public' 目录
 
-    // 如果不跳转，而是直接在当前页面加载艺术品
-    // loadArtworks(selectedCulture, selectedPeriod, selectedDepartment);
+app.listen(port, () => {
+    console.log(`服务器运行在 http://localhost:${port}`);
 });
