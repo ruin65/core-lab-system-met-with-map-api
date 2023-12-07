@@ -2,8 +2,9 @@ import express from 'express';
 import cors from 'cors';
 const app = express();
 const port = process.env.PORT || 3000;
-const cors = require("cors");
+
 app.use(cors());
+
 // 静态文件目录，用于提供静态资源，例如 HTML、CSS 和 JavaScript 文件
 app.use(express.static('public'));
 
